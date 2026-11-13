@@ -1,5 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
+builder.Logging.AddAzureWebAppDiagnostics(); // writes to App Service Log stream / filesystem logs
 
 var app = builder.Build();
 
@@ -19,3 +20,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
